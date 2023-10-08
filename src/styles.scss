@@ -79,37 +79,43 @@ h2 {
     border-radius: 8px;
 }
 
-.container-1 {
+.container {
+    flex-wrap: wrap;
     display: flex;
     flex-direction: row;
     gap: 8px;
 
     & .box {
-        @include color-variant2(red
-    );
-}
+        flex: 0 0 100px;
+    }
+
+
+    &.container-1 {
+
+        & .box {
+            @include color-variant2(red
+        );
+    }
 }
 
-.container-2 {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
+&.container-2 {
+
 
     & .box {
         @include color-variant2(green);
     }
 }
 
-.container-3 {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
+&.container-3 {
+
 
     & .box {
         @include color-variant2(blue);
 
     }
 }
+}
+
 
 .color-box-text {
     color: #fff;
