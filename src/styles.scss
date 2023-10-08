@@ -1,0 +1,123 @@
+@use 'reset';
+@use 'normalize';
+@use 'sass:color';
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+nav {
+    background-color: #4CAF50;
+    padding: 1em;
+
+    & ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        & li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+    }
+
+    & a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+
+}
+
+section {
+    padding: 1em;
+
+}
+
+h1 {
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+@mixin color-variant2($color) {
+    @for $i from 1 through 5 {
+        &.darken-#{$i} {
+            // background-color: darken($color, ($i * 10%));
+            background-color: color.scale($color, $lightness: (
+                    $i * -10%))
+        }
+
+        &.base-color {
+
+            background-color: $color;
+        }
+
+        &.lighten-#{$i} {
+            background-color: color.scale($color, $lightness: (
+                    $i * 10%))
+        }
+
+    }
+}
+
+.box {
+    width: 100%;
+    height: 100px;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;
+    border-radius: 8px;
+}
+
+.container-1 {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+
+    & .box {
+        @include color-variant2(red
+    );
+}
+}
+
+.container-2 {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+
+    & .box {
+        @include color-variant2(green);
+    }
+}
+
+.container-3 {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+
+    & .box {
+        @include color-variant2(blue);
+
+    }
+}
+
+.color-box-text {
+    color: #fff;
+    font-weight: bold;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
