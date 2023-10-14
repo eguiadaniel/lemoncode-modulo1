@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./styles.scss">
 </head>
 
-<body>
+<body data-theme='red'>
     <nav>
         <ul>
             <li><a href="1.html">Ejercicio 1</a></li>
@@ -21,9 +21,42 @@
         <h1>Ejercicio 2</h1>
         <h2>Crear dos temas distintos y mostrar los resultados en una página.</h2>
     </section>
-    <section>
-        <p>[Contenido de la Página]</p>
+    <section class="content">
+
+        <button onclick="switchTheme()">Toggle Theme</button>
+        <div class="examples">
+
+            <div class="box base">
+                <p class="principal">This is a base box with principal font.</p>
+            </div>
+
+            <div class="box base important">
+                <p class="secondary">This is an important box with secondary font.</p>
+            </div>
+
+            <div class="box base warning">
+                <p class="principal">This is a warning box with principal font.</p>
+            </div>
+
+            <p class="principal">This is a principal text outside of a box.</p>
+            <p class="secondary">This is a secondary text outside of a box.</p>
+            <div class="box shadow">
+                <p class="secondary">Box with shadow.</p>
+            </div>
+
+        </div>
     </section>
+    <script>
+
+        const themes = ['red', 'blue', 'green'];
+
+        function switchTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            let nextThemeIndex = (themes.indexOf(currentTheme) + 1) % themes.length;
+            body.setAttribute('data-theme', themes[nextThemeIndex]);
+        }
+    </script>
 </body>
 
 </html>

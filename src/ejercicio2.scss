@@ -1,0 +1,86 @@
+@use 'sass:color';
+
+$principal-font: "Arial", sans-serif;
+$secondary-font: "Georgia", serif;
+
+$themes: (
+    "red": #FF0000,
+    "blue": #00a2ff,
+    "green": #00ff55
+);
+
+@each $theme, $color in $themes {
+    body[data-theme='#{$theme}'] {
+
+        background-color: color.scale($color, $lightness: 80%);
+
+        .base {
+            background-color: $color;
+            color: black;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .important {
+            background-color: color.scale($color, $lightness: 40%);
+        }
+
+        .warning {
+            background-color: color.scale($color, $lightness: -40%);
+            font-weight: lighter;
+        }
+
+        .principal {
+            font-family: $principal-font;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .secondary {
+            font-family: $secondary-font;
+            font-size: 14px;
+            font-weight: lighter;
+            font-style: italic;
+        }
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.examples {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+
+body {
+    .shadow {
+        background-color: white;
+        color: black;
+    }
+
+    &[data-theme='red'] {
+        .shadow {
+            box-shadow: 2px 4px 8px #00000096;
+        }
+    }
+
+    &[data-theme='blue'] {
+        .shadow {
+            box-shadow: 2px 14px 8px #00000096;
+        }
+    }
+
+    &[data-theme='green'] {
+        .shadow {
+            box-shadow: 22px 4px 8px #00000096;
+        }
+    }
+}

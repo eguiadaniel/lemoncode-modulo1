@@ -1,6 +1,8 @@
 @use 'reset';
 @use 'normalize';
-@use 'sass:color';
+@use 'ejercicio1';
+@use 'ejercicio2';
+
 
 body {
     font-family: Arial, sans-serif;
@@ -45,85 +47,4 @@ h1 {
 
 h2 {
     font-size: 24px;
-}
-
-@mixin color-variant2($color) {
-    @for $i from 1 through 5 {
-        &.darken-#{$i} {
-            // background-color: darken($color, ($i * 10%));
-            background-color: color.scale($color, $lightness: (
-                    $i * -10%))
-        }
-
-        &.base-color {
-
-            background-color: $color;
-        }
-
-        &.lighten-#{$i} {
-            background-color: color.scale($color, $lightness: (
-                    $i * 10%))
-        }
-
-    }
-}
-
-.box {
-    width: 100%;
-    height: 100px;
-    color: white;
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 100px;
-    border-radius: 8px;
-}
-
-.container {
-    flex-wrap: wrap;
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-
-    & .box {
-        flex: 0 0 100px;
-    }
-
-
-    &.container-1 {
-
-        & .box {
-            @include color-variant2(red
-        );
-    }
-}
-
-&.container-2 {
-
-
-    & .box {
-        @include color-variant2(green);
-    }
-}
-
-&.container-3 {
-
-
-    & .box {
-        @include color-variant2(blue);
-
-    }
-}
-}
-
-
-.color-box-text {
-    color: #fff;
-    font-weight: bold;
-}
-
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
 }
