@@ -2,6 +2,8 @@
 @use 'normalize';
 @use 'ejercicio1';
 @use 'ejercicio2';
+@use 'ejercicio3';
+@use 'ejercicio4';
 
 
 body {
@@ -24,6 +26,7 @@ nav {
         & li {
             display: inline-block;
             margin-right: 20px;
+            padding: 4px;
         }
     }
 

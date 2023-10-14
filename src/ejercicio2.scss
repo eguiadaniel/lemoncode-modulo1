@@ -42,7 +42,15 @@ $themes: (
             font-weight: lighter;
             font-style: italic;
         }
+
+        button {
+            padding: 8px;
+            border: solid;
+            background: black;
+            color: $color;
+        }
     }
+
 }
 
 .content {
